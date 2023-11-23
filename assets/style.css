@@ -1,0 +1,816 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+
+:root {
+  --box-shadow: 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+  --white: #e8f9fd;
+  --red: #ff1e00;
+}
+
+* {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  /* outline: none; */
+  transition: all 0.2s linear;
+}
+
+html {
+  font-size: 62.5%;
+  /* overflow-x: hidden; */
+  scroll-behavior: smooth;
+}
+
+/* Header Nabar Style  */
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 1rem 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--box-shadow);
+  z-index: 10;
+}
+
+header .logo img {
+  height: auto;
+}
+
+header .my-navbar a {
+  font-size: 1.7rem;
+  padding: 0.5rem 1.5rem;
+  color: black;
+  /* One of the main reasons to use a transparent border is to prevent layout shifts when the border style changes on certain events like hover. For example, if you have a hover effect that changes the border color, having a transparent border ensures that the element’s dimensions don’t change when the border becomes visible*/
+  border: 0.1rem solid transparent;
+  text-decoration: none;
+}
+
+header .my-navbar a.active,
+header .my-navbar a:hover {
+  color: var(--red);
+  border: 0.1rem solid var(--red);
+}
+
+header .icons i {
+  cursor: pointer;
+  margin-left: 0.5rem;
+  height: 4.5rem;
+  width: 4.5rem;
+  line-height: 4.5rem;
+  text-align: center;
+  font-size: 2.5rem;
+  color: black;
+}
+
+/* We excluded the menu from the animation */
+header .icons i.animation:hover {
+  color: var(--red);
+  transform: translateY(-10px);
+}
+
+header .icons #menu {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  header {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header .icons #menu {
+    display: inline-block;
+  }
+  header .my-navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #eee;
+    border-top: 0.1rem solid rgba(205, 170, 124, 0.2);
+    border-bottom: 1rem solid rgba(205, 170, 124, 0.2);
+    padding: 1rem;
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); /* hide menu */
+  }
+
+  header .my-navbar.active {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); /* show menu */
+  }
+
+  header .my-navbar a {
+    display: block;
+    padding: 1.5rem;
+    margin: 1rem;
+    font-size: 2rem;
+    text-align: center;
+    border: 0.1rem solid var(--red);
+  }
+}
+
+/* Home css */
+
+.home .home-slider .slide {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  justify-content: flex-start;
+}
+
+.home .home-slider .slide1 {
+  background: url(./images/slideshow-1.jpg);
+}
+
+.home .home-slider .slide2 {
+  background: url(./images/slideshow-2.jpg);
+}
+
+.home .home-slider .slide3 {
+  background: url(./images/slideshow-3.jpg);
+}
+
+.home .home-slider .slide1,
+.home .home-slider .slide2,
+.home .home-slider .slide3 {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.home .home-slider .slide .content {
+  text-align: center;
+  padding-left: 9rem;
+}
+
+.home .home-slider .slide .content h3 {
+  color: var(--red);
+  font-size: 3rem;
+  font-weight: 300;
+}
+
+.home .home-slider .slide .content h1 {
+  color: #fff;
+  font-size: 8rem;
+}
+
+.home .home-slider .slide .content p {
+  color: #e6e7e7;
+  font-size: 1.8rem;
+  letter-spacing: 1px;
+  padding: 0.5rem 0;
+  line-height: 1.5;
+  font-weight: 200;
+}
+
+.swiper-pagination-bullet {
+  background: var(--white);
+  width: 15px;
+  height: 15px;
+  border-radius: 0;
+}
+
+@media (max-width: 768px) {
+  .home .home-slider .slide {
+    justify-content: center;
+  }
+  .home .home-slider .slide .content {
+    padding: 0;
+  }
+  .home .home-slider .slide .content h1 {
+    font-size: 7rem;
+  }
+}
+
+@media (max-width: 650px) {
+  .home .home-slider .slide .content h3 {
+    font-weight: 200;
+  }
+
+  .home .home-slider .slide .content h1 {
+    font-size: 4rem;
+  }
+
+  .home .home-slider .slide .content p {
+    font-weight: 200;
+  }
+}
+
+/*******************************/
+/********** About CSS **********/
+/*******************************/
+
+.section-header {
+  position: relative;
+  margin-bottom: 45px;
+}
+
+.section-header p {
+  color: var(--red);
+  margin-bottom: 5px;
+  position: relative;
+  font-size: 20px;
+}
+
+.section-header h2 {
+  margin: 0;
+  position: relative;
+  font-size: 45px;
+  font-weight: 700;
+}
+.about {
+  position: relative;
+  width: 100%;
+  padding: 45px 0;
+}
+
+.about .section-header {
+  margin-bottom: 30px;
+  margin-left: 0;
+}
+
+.about .about-img {
+  position: relative;
+}
+
+.about .about-img img {
+  position: relative;
+  width: 100%;
+  border-radius: 15px;
+}
+
+.about .about-content {
+  position: relative;
+}
+
+.about .about-text p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  font-family: "open sans", sans-serif;
+  color: #757575;
+}
+
+.about .about-text a.btn {
+  position: relative;
+  margin-top: 15px;
+}
+
+.heading {
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: "Roboto Slab", serif;
+  text-align: center;
+  color: black;
+  font-size: 4.5rem;
+  padding-bottom: 5rem;
+  text-transform: uppercase;
+  letter-spacing: 1.3px;
+}
+
+hr {
+  padding-bottom: 15px;
+}
+
+@media (max-width: 991.98px) {
+  .about .about-img {
+    margin-bottom: 30px;
+  }
+}
+
+/* --------------------------------------------Buttons----------------------------------------- */
+/* home */
+.btn-custom {
+  color: var(--white) !important;
+  padding: 14px 24px;
+  font-size: 15px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+
+.btn-custom:hover {
+  background-color: var(--red) !important;
+}
+/* about */
+
+.btn-custom2 {
+  padding: 10px 24px;
+  font-size: 15px;
+}
+/* ------------------------------------ */
+/* Media query general */
+
+@media (max-width: 991px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+/* Our gallery */
+
+/* .carousel {
+  height: 700px;
+  width: 600px;
+} */
+
+.c-item {
+  height: 700px;
+  /* width: 600px; */
+}
+
+.c-img {
+  height: 100%;
+
+  object-fit: cover;
+}
+
+/* Menu */
+
+.my-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  width: 346px;
+  height: 229px;
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  border: 2px solid grey;
+  background-color: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.box:hover {
+  transform: scale(1.05);
+  border-color: black;
+}
+
+.box img {
+  width: 250px;
+  min-width: 180px;
+}
+
+.box .dish-title {
+  font-family: "Roboto Slab", serif;
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
+.box .dish-list {
+  font-family: "Roboto", serif;
+  font-size: 1.5rem;
+  color: var(--red);
+}
+
+/* CLASSES TO MAKE MODAL WORK */
+.hidden {
+  display: none;
+}
+
+.my-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 50vh;
+  overflow-y: auto;
+  background: url(./images/our-menu-bg-3.jpg);
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+  z-index: 901;
+}
+.overlay {
+  /* this will make the whole page blur */
+  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(3px);
+  z-index: 900;
+}
+.close-modal {
+  position: absolute;
+  top: -2rem;
+  right: 1rem;
+  font-size: 5rem;
+  color: var(--white);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+/*  */
+.menu-container {
+  padding: 3rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(50rem, 2fr));
+  gap: 5rem 10rem;
+}
+
+.menu-container .item .item-name {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  margin-top: 0.5rem;
+}
+
+.menu-container .item .item-name h2 {
+  font-size: 3rem;
+  color: #e5e5e5;
+  font-weight: 300;
+}
+
+.menu-container .item .item-menu h3 {
+  font-size: 2rem;
+  color: #e5e5e5;
+  font-weight: 200;
+  display: inline-block;
+}
+
+.menu-container .item .item-menu span {
+  width: 37%;
+  display: inline-block;
+  border: 1px dotted #e5e5e5;
+}
+
+.menu-container .item .item-menu ul {
+  display: flex;
+  font-size: 1.5rem;
+  list-style: none;
+  padding: 0.8rem 0;
+  font-weight: 200;
+}
+
+.menu-container .item .item-menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.3rem;
+}
+
+.menu-title {
+  text-align: center;
+  color: white;
+  text-decoration-line: underline;
+}
+
+/* Custom scroll bar */
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--white);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--red);
+}
+
+/* Modal Scrollbar */
+.my-modal::-webkit-scrollbar {
+  width: 10px;
+}
+
+.my-modal::-webkit-scrollbar-track {
+  background: black;
+}
+
+.my-modal::-webkit-scrollbar-thumb {
+  background-color: white;
+}
+
+@media (max-width: 1500px) {
+  .menu-title {
+    font-size: 3.5rem;
+  }
+  .my-modal {
+    width: 95%;
+  }
+  .menu-container .item .item-menu h3 {
+    font-size: 3.5rem;
+  }
+  .menu-container .item .item-menu ul li a {
+    font-size: 2.2rem;
+  }
+  .menu-title {
+    font-size: 3.5rem;
+  }
+}
+@media (max-width: 900px) {
+  .my-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 700px) {
+  .my-modal {
+    width: 95%;
+    height: 70vh;
+  }
+  .menu-container .item .item-menu h3 {
+    font-size: 2.5rem;
+  }
+  .menu-container .item .item-menu ul li a {
+    font-size: 1.3rem;
+  }
+  .menu-title {
+    font-size: 3.5rem;
+  }
+  .menu-container {
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 2fr));
+  }
+
+  .menu-container .item .item-menu span {
+    width: 15%;
+  }
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+/*******************************/
+/********* Contact CSS *********/
+/*******************************/
+.contact {
+  position: relative;
+  width: 100%;
+  padding: 45px 0 15px 0;
+}
+
+.contact .contact-information {
+  min-height: 150px;
+  margin: 0 0 30px 0;
+  padding: 30px 15px 0 15px;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.contact .contact-info {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.contact .contact-icon {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--red);
+  border-radius: 50px;
+}
+
+.contact .contact-icon i {
+  font-size: 18px;
+  color: var(--white);
+}
+
+.contact .contact-text {
+  position: relative;
+  width: calc(100% - 50px);
+  display: flex;
+  flex-direction: column;
+  padding-left: 15px;
+}
+
+.contact .contact-text h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: black;
+}
+
+.contact .contact-text p {
+  margin: 0;
+  font-size: 16px;
+  color: #454545;
+}
+
+.contact .contact-social a {
+  margin-right: 10px;
+  font-size: 18px;
+  color: var(--red);
+}
+
+.contact .contact-social a:hover {
+  color: black;
+}
+
+.contact .contact-form iframe {
+  width: 100%;
+  height: 380px;
+  border-radius: 15px;
+  margin-bottom: 25px;
+}
+
+.contact .contact-form input {
+  padding: 15px;
+  background: none;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 1.5rem;
+}
+
+.contact .contact-form textarea {
+  height: 150px;
+  padding: 8px 15px;
+  background: none;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  font-size: 1.5rem;
+  resize: none;
+}
+
+.contact .help-block ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.btn-danger {
+  background-color: var(--red);
+}
+.btn-danger:hover {
+  background-color: white;
+  color: var(--red);
+}
+
+/*******************************/
+/********* Footer CSS **********/
+/*******************************/
+.footer {
+  position: relative;
+  margin-top: 45px;
+  padding-top: 90px;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.footer .footer-contact,
+.footer .footer-link,
+.footer .footer-newsletter {
+  position: relative;
+  margin-bottom: 45px;
+  color: #454545;
+}
+
+.footer .footer-contact h2,
+.footer .footer-link h2,
+.footer .footer-newsletter h2 {
+  position: relative;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--red);
+}
+
+.footer .footer-contact h2::after,
+.footer .footer-link h2::after,
+.footer .footer-newsletter h2::after {
+  position: absolute;
+  content: "";
+  width: 45px;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background: black;
+}
+
+.footer .footer-link a {
+  display: block;
+  margin-bottom: 10px;
+  color: #454545;
+  text-decoration: none;
+  font-size: 1.4rem;
+  transition: 0.3s;
+}
+
+.footer .footer-link a::before {
+  position: relative;
+  content: "\f105";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 10px;
+  color: var(--red);
+}
+
+.footer .footer-link a:hover {
+  color: black;
+  letter-spacing: 1px;
+}
+
+.footer .footer-contact p i {
+  width: 25px;
+  color: var(--red);
+  font-size: 1.5rem;
+}
+
+.footer .footer-contact p {
+  font-size: 1.4rem;
+}
+
+.footer .footer-social {
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+}
+
+.footer .footer-social a {
+  display: inline-block;
+  margin-right: 5px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--red);
+  border-radius: 35px;
+  font-size: 16px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer .footer-social a:hover {
+  background: black;
+}
+
+.footer .footer-social a:last-child {
+  margin: 0;
+}
+
+.footer .copyright {
+  position: relative;
+  width: 100%;
+  padding: 30px 0;
+  text-align: center;
+  background: #ffffff;
+}
+
+.footer .copyright p {
+  margin: 0;
+  display: inline-block;
+  color: #454545;
+  font-size: 1.5rem;
+}
+
+.footer .copyright p a {
+  color: var(--red);
+  text-decoration: none;
+}
+
+.footer .copyright p a:hover {
+  color: black;
+}
+
+/*  */
+
+.footer .horaire li {
+  list-style-type: none;
+}
+
+.footer .horaire {
+  display: block;
+  margin-bottom: 10px;
+  color: #454545;
+  text-decoration: none;
+  font-size: 1.4rem;
+  transition: 0.3s;
+}
+
+.footer .horaire li::before {
+  position: relative;
+  content: "\f105";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 10px;
+  color: var(--red);
+}
+
+.red {
+  color: var(--red);
+}
